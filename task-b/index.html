@@ -32,7 +32,7 @@
         }
         #map {
             width: 80%;
-            height: 240px;
+            height: 440px;
             margin: 10px auto;
         }
         footer {
@@ -45,9 +45,67 @@
         }
         
         p.author-info {
-            font-size: 3em;
+            text-align: right;
+            font-size: 0.8em;
+            font-style: italic;
             color: #001323;
         }
+        
+        a:link {
+            color: #7c7d7e;
+            font-weight: bold;
+        }
+        
+        p.about-this-map {
+            font-size: 1em;
+            text-decoration: blink;
+            color: #7c7d7e;
+        }
+        
+        p.data-sources {
+            font-size: 1em;
+            color: #7c7d7e;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 0.1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 0.1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+        
+<style type="text/css">
+<!--
+a:link {color: #000000; text-decoration: underline; }
+a:active {color: #0000ff; text-decoration: underline; }
+a:visited {color: #008000; text-decoration: underline; }
+a:hover {color: #ff0000; text-decoration: none; }
+-->        
         /* Additional style rules go here! */
     </style>
 </head>
@@ -55,16 +113,16 @@
 <body>
     <header>
         <h1>Lexington: Home of the IGUANAS</h1>
-        <h2>Map Subtitle</h2>
+        <h2>...and other lizards.</h2>
     </header>
 
     <div id='map'></div>
 
     <footer>
         <p class='author-info'>Map authored by Matthew Zook</p>
-        <p>This is a super cool map and I made it myself.</p>
-        <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.</p>
+        <p class='about-this-map'>About this map: This is a super cool map and I made it myself.</p>
+        <p class='data-sources'>Data Sources: <a href="https://github.com/mattzook/geo409">Matt Zook's Github Repository</a></p>
+       
     </footer>
 
     <script>
