@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>Module 05 Template</title>
+    <title>Geo409 Task E Starter</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -45,6 +45,8 @@
             color: #001323;
         }
         /* Additional style rules go here! */
+        
+
     </style>
 </head>
 
@@ -69,7 +71,7 @@
 
         var options = {
             center: [38.0489,-84.5025],
-            zoom: 13
+            zoom: 8
         }
         map = L.map(targetDiv, options);
         var tiles = L.tileLayer('http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png', {
@@ -80,26 +82,59 @@
         });
         map.addLayer(tiles);
         
-        // continue JavaScript coding here!
+        // begin writing/editing Task E code here
         
-   var iguana = { 
-        name: "Jack", 
-        weight: 4.2, // kilos
-        length: 1.50, // meters
-        age: 8, 
-        eyes: "dreamy",
-        calculateBMI: function(w,l) {
-            return w / (l*l);
+        var lexArea = 285.5;
+        // create a second variable for a second city's area here
+        // create a third variable for a third city's area here
+        
+        prepareData(lexArea); // modify function call to pass 2 additional
+                              // arguments
+        
+        function prepareData(lexArea) { /* include 2 more parameters here */
+            
+            var cities = ["Lexington"]; /* include 2nd and 3rd city names */
+            var cityCoords = [
+                [38.0297, -84.4947] 
+                /* include 2nd city lat/lon here */
+                /* include 3rd city lat/lon here */
+                
+            ];
+            var cityPops = [308428]; /* include 2nd and 3rd city pops here */
+            
+            var cityAreas = [lexArea]; /* include 2nd and 3rd city areas */
+                    
+            mapCities(cities, cityCoords); // modify function call to pass 2 additional
+                                           // arguments
+            
         }
-    }
-    var result = iguana.calculateBMI(4.2,1.50);
-    console.log(result); // output is 1.87 which is really underweight
-                         // at least for a human, not sure about an iguana
+            
+        function mapCities(cities, cityCoords) { /* include 2 more parameters here */
+            
+            var units = 'miles';
+            
+            for(var i = 0; i < cities.length; i++) {
 
-    var result = iguana.calculateBMI(iguana.weight, iguana.length);
-    console.log(result); 
-       
+                /*var density =  call a function named calcPopDensity here, passing
+                                 the city population and area as arguments, and assign
+                                 return value to the "density" variable */
+
+                var popup = "<b>"+cities[i]+"</b><br>"
+                                //+"<b>Density</b>: "+density.toLocaleString()+" people per sq " + units;
+
+                L.marker(cityCoords[i]).addTo(map)
+                    .bindPopup(popup);
+                
+            }
+        }
         
+        // write a function named calcPopDensity which accepts two arguments from the caller, the  
+        // population and the area of a single city. The function should calculate the density
+        // of the city with these two values and return the result to the caller 
+        
+
+        // end writing/editing Task E code here
+          
     </script>
     
 </body>
