@@ -69,13 +69,35 @@
 
     var map = L.map('map', {
         center: [40,-94],
-        zoom: 4
+        zoom: 4,
+        minZoom: 4,
+        maxZoom: 12
     });
+
+    var Stamen_Watercolor = L.tileLayer('http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png', {
+        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: 'abcd',
+        minZoom: 1,
+        maxZoom: 16
+    });        
+        
+    map.addLayer(Stamen_Watercolor);    
                 
     var redIguana = L.latLng(40.7718,-111.9124);
         
     map.on('click', function(e){
-        console.log(e.latlng);   
+        var center = e.latlng;
+        console.log("here ", center);
+        map.setView(center, 6)
+        var distance = center.distanceTo(redIguana);
+        console.log("The distance to the Red Iguana Restaurant is ", distance, " meters.");
+        
+        var bBox   = map.getBounds();
+        var sw = bBox.getSouthWest(); // returns a LatLng object
+        var distance2 = sw.distanceTo(redIguana);        
+        
+        console.log("The distance to the Red Iguana Restaurant from the SouthWest corner is ", distance, " meters.");
+        
     });
                   
     </script>
